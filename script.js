@@ -44,7 +44,7 @@ gameArea.addEventListener('touchmove', (e) => {
     let moveDistance = touchMoveX - touchStartX;
     let newPlayerPos = playerStartX + moveDistance;
     
-    if (newPlayerPos >= 0 && newPlayerPos <= gameArea.offsetWidth - player.offsetWidth) {
+    if (newPlayerPos >= 0 && newPlayerPos <= gameArea.offsetWidth - player.offsetWidth+30) {
         player.style.left = newPlayerPos + 'px';
     }
 });
