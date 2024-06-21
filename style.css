@@ -1,3 +1,7 @@
+@font-face {
+    font-family: gameOverFont;
+    src: url(assets/PressStart2P-vaV7.ttf);
+  }
 body {
     margin: 0;
     overflow: hidden;
@@ -5,8 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgb(3,19,46);
-    background: radial-gradient(circle, rgba(3, 19, 46, 0.644) 0%, rgba(46,50,96,1) 45%, rgba(29,24,128,1) 75%, rgba(9,1,50,1) 100%);
+    background:rgb(38,38,38);
 }
 
 .score-container{
@@ -30,8 +33,8 @@ body {
     position:absolute;
     width:100%;
     bottom:5vh;
-    height: 30px;
-    font-size: 25px;
+    height: 2rem;
+    font-size: 2rem;
     text-align: center;
     color: rgb(255, 255, 255);
 }
@@ -40,14 +43,17 @@ body {
 #gameArea {
     padding:10;
     position: relative;
+    width:100%;
     width: 100%; /* Make it responsive */
     max-width: 600px; /* Set a max width */
-    height: 80vh; /* Fill the viewport height */
-    max-height: 600px; /* Set a max height */
+    height: 100vh; /* Fill the viewport height */
+    max-height: 450px; /* Set a max height */
     background:url('assets/bgImg.jpg');
     border: 5px solid #302f2f;
     overflow: hidden;
-    background-size:contain;
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center;
+    background-repeat: no-repeat;
     
 }
 
@@ -62,7 +68,6 @@ body {
     transform: translateX(-50%);
     background-image:url('assets/ufo.png'); 
     background-size:cover;
-    /* background-color: bisque; */
     background-repeat: no-repeat;
     background-origin: content-box;
     filter: drop-shadow(2px 2px 20px #59d4cef3);
@@ -95,12 +100,64 @@ body {
     align-items: center;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    
 }
 
 .alertBox {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    background:rgb(139, 138, 138);
+    padding: 20px 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid #302f2f;
+    font-size: 1rem;
+    color: rgb(252, 30, 1);
+    font-family: gameOverFont;
 } 
+.alertBox button{
+    background:rgb(63, 63, 63);
+    padding:5px 20px;
+    text-align: center;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    border: 3px solid #302f2f;
+    font-size: 1rem;
+    color: rgb(226, 226, 226);
+}
+
+@media only screen and (max-width: 1200px){
+    /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+	/*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px){
+    #gameArea {
+        width:100%;
+        height: 90vh; /* Fill the viewport height */
+        max-height: 450px; /* Set a max height */
+        background:url('assets/bgImg.jpg');
+        border: 5px solid #302f2f;
+        overflow: hidden;
+        background-size: cover; /* Ensure the image covers the entire div */
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+    #player {
+        position: absolute;
+        margin:0;
+        padding:0;
+        bottom: 1px;
+        left: 50%;
+        aspect-ratio: 1;
+        width: 90px;
+        height: 30px;
+        transform: translateX(-50%);
+        background-image:url('assets/ufo.png'); 
+        background-size:cover;
+        /* background-color: bisque; */
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        filter: drop-shadow(2px 2px 20px #59d4cef3);
+    }
+    
+}

@@ -8,15 +8,18 @@ let score = 0;
 let highScore = localStorage.getItem('highScore') ? parseInt(localStorage.getItem('highScore')) : 0;
 let live=3;
 
+var audio2 = new Audio('assets/gameOver.mp3');
+
 // Initialize the game
-updateHighScore()
 startGame();
-showLives();
+
 
 // Start the game
 function startGame() {
     gameInterval = setInterval(gameLoop, 20);
     objectInterval = setInterval(createFallingObject, 1000);
+    updateHighScore();
+    showLives();
 }
 
 // Control Player movement
@@ -30,26 +33,42 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+// Add touch event listeners
+gameArea.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    playerStartX = player.offsetLeft;
+});
+//For Phone
+gameArea.addEventListener('touchmove', (e) => {
+    let touchMoveX = e.touches[0].clientX;
+    let moveDistance = touchMoveX - touchStartX;
+    let newPlayerPos = playerStartX + moveDistance;
+    
+    if (newPlayerPos >= 0 && newPlayerPos <= gameArea.offsetWidth - player.offsetWidth) {
+        player.style.left = newPlayerPos + 'px';
+    }
+});
+
 // Game loop
 function gameLoop() {
-    var audio = new Audio('assets/hit.mp3');
     const objects = document.getElementsByClassName('fallingObject');
+    var audio = new Audio('assets/hit.mp3');
     for (let i = 0; i < objects.length; i++) {
         let object = objects[i];
         object.style.top = object.offsetTop + 5 + 'px';
         let scoreCard = document.getElementsByClassName('score-container');
         // Check for collision with player
         if (isCollision(player, object)) {
+            audio.play();
             score++;
             object.remove();
             scoreCard[0].innerHTML=`Score : ${score}`;
             console.log('Score:', score);
-            audio.play();
             updateHighScore();
         }
 
         // Remove object if it goes off screen
-        if (object.offsetTop-object.offsetHeight > gameArea.offsetHeight) {
+        if (object.offsetTop-object.offsetHeight > gameArea.offsetHeight-50) {
             object.remove();
             live-=1;
             showLives();
@@ -119,6 +138,7 @@ function endGame() {
     clearInterval(objectInterval);
     gameOverAlert.classList.remove('hidden');
     gameOverAlert.classList.add('gameOverAlert');
+    audio2.play();
 }
 
 // Restart game
