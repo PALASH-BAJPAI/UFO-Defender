@@ -7,7 +7,7 @@
 
 <!--BADGES-->
 <p align="center">
-  <a href="https://ufo-defender.netlify.app/"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Play The Game&color=%230076D6&style=flat&logo=google-chrome&logoColor=white" alt="Play The Game"/></a>
+  <a href="http://ufo-defender.netlify.app/"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Play The Game&color=%230076D6&style=flat&logo=google-chrome&logoColor=white" alt="Play The Game"/></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 
 **Click me:** 
-[UFO-Defender](https://ufo-defender.netlify.app/)
+[UFO Defender](http://ufo-defender.netlify.app/)
 
 ## Features of Game
 
@@ -47,6 +47,13 @@
 </ul>
 
 
+<br/>
+<br/>
 
-https://github.com/PALASH-BAJPAI/UFO-Defender/assets/63140586/8e3c90f5-32d5-4e96-afa1-abaaf07a0d08
+## Game Play
+
+
+https://github.com/PALASH-BAJPAI/UFO-Defender/assets/63140586/14cd2d86-a85f-434c-a2a7-113de23d873c
+
+
 
